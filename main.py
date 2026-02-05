@@ -16,12 +16,13 @@ origins = [
     "http://localhost",
     "http://localhost:3000",
     "http://localhost:3001",
-    "nestlyflow.vercel.app"
+    "nestlyflow.vercel.app",
+    "https://nestlyflow.vercel.app"
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=['nestlyflow.vercel.app', "https://nestlyflow.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
