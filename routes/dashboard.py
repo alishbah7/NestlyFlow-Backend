@@ -9,7 +9,7 @@ from dependencies import get_db, get_current_user
 import crud
 
 router = APIRouter(
-    prefix="/dashboard",
+    prefix="/api",
     tags=["dashboard"],
     dependencies=[Depends(get_current_user)],
     responses={404: {"description": "Not found"}},
