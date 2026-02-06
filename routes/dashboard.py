@@ -15,7 +15,7 @@ router = APIRouter(
     responses={404: {"description": "Not found"}},
 )
 
-@router.get("/", response_model=DashboardStats)
+@router.get("/dashboard", response_model=DashboardStats)
 def get_dashboard_data(db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     """
     Retrieve aggregated data for the user's dashboard.
