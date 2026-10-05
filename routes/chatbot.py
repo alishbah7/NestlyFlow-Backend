@@ -193,7 +193,7 @@ async def chat_with_bot(chat_message: ChatMessage, db: Session = Depends(get_db)
 
     try:
         chat_completion = groq_client.chat.completions.create(
-            messages=messages, model="llama-3.3-70b-versatile", tools=tools, tool_choice="auto"
+            messages=messages, model="openai/gpt-oss-120b", tools=tools, tool_choice="auto"
         )
         response_message = chat_completion.choices[0].message
         messages.append(_message_to_dict(response_message))
@@ -208,7 +208,7 @@ async def chat_with_bot(chat_message: ChatMessage, db: Session = Depends(get_db)
             messages.append({"role": "tool", "tool_call_id": tool_call.id, "name": function_name, "content": str(tool_output)})
 
             second_chat_completion = groq_client.chat.completions.create(
-                messages=messages, model="llama-3.3-70b-versatile", tool_choice="none"
+                messages=messages, model="openai/gpt-oss-120b", tool_choice="none"
             )
             final_response = second_chat_completion.choices[0].message.content
             messages.append({"role": "assistant", "content": final_response})
