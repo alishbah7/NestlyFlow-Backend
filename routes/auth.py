@@ -222,7 +222,7 @@ def forgot_password(
     db.commit()
 
     # Get the base URL from the request
-    base_url = "http://localhost:3000/"
+    base_url = "http://nestlyflow.vercel.app"
     # Construct the reset link
     reset_link = f"{base_url}reset-password?token={token}"
 
